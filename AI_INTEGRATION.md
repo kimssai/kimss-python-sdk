@@ -14,12 +14,14 @@ Kimss is a **Model-Agnostic Enterprise AI Gateway and Governance Control Plane**
 3. **For OpenAI:** set `base_url` to `https://api.kimss.ai/v1`.
 4. **For Anthropic:** set `base_url` to `https://api.kimss.ai` (the SDK appends `/v1/messages`).
 5. **Always** inject `X-Kimss-Agent-Id` (and preferably `X-Kimss-Agent-Name`) for JIT attribution, audit, and kill-switch.
-6. Hermis / HTTP interceptors: forward Agent-Id headers; never strip them.
+6. **Call-site visibility (recommended):** use `kimss.gateway_headers(agent_id=..., agent_name=...)` as `extra_headers` so Agent Tracking and Call Sites get a named environment (`X-Kimss-SDK-Context`). Without it, Kimss still infers runtime from `User-Agent` / `x-stainless-*` headers.
+7. Hermis / HTTP interceptors: forward Agent-Id headers; never strip them.
 
 ## OpenAI
 
 ```python
 from openai import OpenAI
+from kimss.gateway_headers import gateway_headers
 
 client = OpenAI(
     base_url="https://api.kimss.ai/v1",
@@ -28,7 +30,7 @@ client = OpenAI(
 response = client.chat.completions.create(
     model="custom:kimss-gpt-5-3",
     messages=[{"role": "user", "content": "Execute audit."}],
-    extra_headers={"X-Kimss-Agent-Id": "enterprise_auditor"},
+    extra_headers=gateway_headers(agent_id="enterprise_auditor", agent_name="Enterprise auditor"),
 )
 ```
 
