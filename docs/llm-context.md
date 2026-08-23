@@ -62,6 +62,7 @@ Auth: `Authorization: Bearer kimss_...`, `X-Kimss-Key`, or Anthropic-style `x-ap
 |---------|-----|
 | Register external agent | `client.agents.register(...)` → `POST /v1/agents/register` |
 | Report BYO usage | `client.usage.report(...)` → `POST /v1/usage/events` |
+| Vault BYO endpoint + optional token cap | REST `POST/PATCH /api/v1/custom-model-endpoints` (`monthly_token_cap`, `cap_action`) — see `/docs/custom_model_endpoints` |
 | Kill switch | Governance UI or `POST /agent_set_status/` `{id, status: "disabled"\|"active"}` (admin) |
 | Article 12–style audit | Gateway → Recent calls; `POST /audit_log/` for tenant admin events; APIM GatewayLogs when enabled |
 | MCP sync | Control Plane / Connected Infrastructure (UI); do not invent a public MCP HTTP proxy URL |

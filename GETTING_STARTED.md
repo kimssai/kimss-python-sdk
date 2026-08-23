@@ -8,7 +8,7 @@ Kimss is the **Secure AI Gateway** and **Governance Control Plane**: identity, a
 
 ## Step 1 — Sign In & Vault
 
-Open **Governance → Provider Vault** / Connected Infrastructure (`/app/governance/custom-models`). Add your OpenAI, Azure OpenAI / Foundry, Anthropic, DeepSeek, or vLLM endpoint. The key is vaulted and never returned to clients.
+Open **Governance → Provider Vault** / Connected Infrastructure (`/app/governance/custom-models`). Add your OpenAI, Azure OpenAI / Foundry, Anthropic, DeepSeek, or vLLM endpoint. The key is vaulted and never returned to clients. On paid plans you can optionally set a **monthly token cap** per endpoint (alert or block) — separate from governed requests. See [Connected Infrastructure docs](https://kimss.ai/docs/custom_model_endpoints).
 
 ## Step 2 — Mint a Control-Plane key
 
