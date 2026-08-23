@@ -1,4 +1,5 @@
 """Kimss Python SDK – integration layer for the Kimss Secure AI Gateway."""
+from .gateway_headers import gateway_headers
 from .client import Agent, AgentRunResult, AgentRunUsage, KimssClient
 from .environment import KimssEnv, current_env, env_label, is_staging, redis_cache_namespace_infix
 from .errors import (
@@ -13,6 +14,7 @@ from .privacy import BeforeRequestHook, PresidioRedactor
 
 __all__ = [
     "KimssClient",
+    "gateway_headers",
     "Agent",
     "AgentRunResult",
     "AgentRunUsage",

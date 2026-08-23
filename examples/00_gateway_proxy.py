@@ -15,6 +15,8 @@ import sys
 
 from openai import OpenAI
 
+from kimss.gateway_headers import gateway_headers
+
 
 def main() -> None:
     key = (os.environ.get("KIMSS_WORKSPACE_KEY") or os.environ.get("KIMSS_API_KEY") or "").strip()
@@ -33,10 +35,7 @@ def main() -> None:
     resp = client.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": "Execute database audit."}],
-        extra_headers={
-            "X-Kimss-Agent-Id": agent_id,
-            "X-Kimss-Agent-Name": name,
-        },
+        extra_headers=gateway_headers(agent_id=agent_id, agent_name=name),
     )
     print(resp.choices[0].message.content)
 
