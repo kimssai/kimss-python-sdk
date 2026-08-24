@@ -2,6 +2,8 @@
 
 Dual-listener Secure AI Gateway. Never “zero-trust”.
 
+**Prerequisites (Kimss app):** Provider Vault → Gateway API key → then repo changes. See AI_INTEGRATION.md.
+
 1. Keep the developer's native `openai` or `anthropic` SDK.
 2. OpenAI → `base_url=https://api.kimss.ai/v1`. Anthropic → `base_url=https://api.kimss.ai`.
 3. Always inject `X-Kimss-Agent-Id` / `X-Kimss-Agent-Name`.

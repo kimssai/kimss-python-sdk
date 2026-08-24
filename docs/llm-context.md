@@ -4,12 +4,14 @@ Pair with [AI_INTEGRATION.md](../AI_INTEGRATION.md), [README.md](../README.md), 
 
 ## Clean machine checklist (do this first)
 
+0. **Kimss app (human or operator):** Provider Vault (`/app/vault`) — register each `custom:<model_id>`. Gateway API key (`/app/workspace/keys`).
 1. **Python ≥ 3.10** available.
 2. For **inference**: keep the native SDK already in the repo — `pip install openai` and/or `pip install anthropic`. Point it at the Kimss gateway (no Kimss SDK required).
 3. Optional control-plane package: `pip install kimss` (register agents, report usage). Declared dep: `requests>=2.28`.
 4. Set env: `KIMSS_WORKSPACE_KEY` or `KIMSS_API_KEY`, `KIMSS_AGENT_ID`. OpenAI default host `https://api.kimss.ai/v1`. Anthropic default host `https://api.kimss.ai`.
 5. **Preferred first call:** official OpenAI client → `POST /v1/chat/completions` **or** official Anthropic client → `POST /v1/messages`, always with `X-Kimss-Agent-Id`.
-6. **Deprecated:** `KimssClient.agents.run`, `chat`, `Agent.query`, `models.create`, MCP `kimss_chat` / `kimss_run_agent` / `kimss_complete`.
+6. **Agents Discovery:** inventory rows appear JIT after first gateway traffic; pre-define policy in UI only when governance must exist before the first call.
+7. **Deprecated:** `KimssClient.agents.run`, `chat`, `Agent.query`, `models.create`, MCP `kimss_chat` / `kimss_run_agent` / `kimss_complete`.
 
 ## Preferred inference (dual-listener gateway)
 
@@ -62,10 +64,10 @@ Auth: `Authorization: Bearer kimss_...`, `X-Kimss-Key`, or Anthropic-style `x-ap
 |---------|-----|
 | Register external agent | `client.agents.register(...)` → `POST /v1/agents/register` |
 | Report BYO usage | `client.usage.report(...)` → `POST /v1/usage/events` |
-| Vault BYO endpoint + optional token cap | REST `POST/PATCH /api/v1/custom-model-endpoints` (`monthly_token_cap`, `cap_action`) — see `/docs/custom_model_endpoints` |
+| Vault BYO endpoint + optional token cap | REST `POST/PATCH /api/v1/custom-model-endpoints` or Provider Vault UI (`/app/vault`) |
 | Kill switch | Governance UI or `POST /agent_set_status/` `{id, status: "disabled"\|"active"}` (admin) |
 | Article 12–style audit | Gateway → Recent calls; `POST /audit_log/` for tenant admin events; APIM GatewayLogs when enabled |
-| MCP sync | Control Plane / Connected Infrastructure (UI); do not invent a public MCP HTTP proxy URL |
+| MCP sync | Provider Vault (UI); do not invent a public MCP HTTP proxy URL |
 
 Native auth for control-plane calls: **`X-Kimss-Key`**. Base URL for `KimssClient`: `https://api.kimss.ai` (no `/v1` suffix).
 
