@@ -84,7 +84,7 @@ On the **Gateway** tab, **Generate Key**. Copy the `kimss_...` Control-Plane wor
 
 Point your **OpenAI** client at `https://api.kimss.ai/v1` or your **Anthropic** client at `https://api.kimss.ai`, set the key, and add `X-Kimss-Agent-Id` (see hero snippets).
 
-Step-by-step: [GETTING_STARTED.md](GETTING_STARTED.md) · 5-minute tutorial: [kimssai/kimss-python-quickstart](https://github.com/kimssai/kimss-python-quickstart).
+Step-by-step: [GETTING_STARTED.md](GETTING_STARTED.md) · 5-minute tutorial: [kimssai/kimss-python-quickstart](https://github.com/kimssai/kimss-python-quickstart) · control-plane OpenAPI: [kimssai/kimss-control-plane](https://github.com/kimssai/kimss-control-plane).
 
 ---
 
