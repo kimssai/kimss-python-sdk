@@ -3,7 +3,7 @@
 [![PyPI](https://img.shields.io/pypi/v/kimss.svg?color=indigo)](https://pypi.org/project/kimss/)
 [![Python](https://img.shields.io/pypi/pyversions/kimss.svg?color=purple)](https://pypi.org/project/kimss/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-indigo.svg)](LICENSE)
-[![CI](https://img.shields.io/badge/CI-indigo?logo=github)](https://github.com/kimss-ai-inc/kimss-python-sdk/actions/workflows/ci.yml)
+[![CI](https://img.shields.io/badge/CI-indigo?logo=github)](https://github.com/kimss-ai/kimss-python-sdk/actions/workflows/ci.yml)
 
 **Track, govern, and secure autonomous agents with exactly 1 line of code. Zero data-plane refactoring required.**
 
@@ -84,7 +84,7 @@ On the **Gateway** tab, **Generate Key**. Copy the `kimss_...` Control-Plane wor
 
 Point your **OpenAI** client at `https://api.kimss.ai/v1` or your **Anthropic** client at `https://api.kimss.ai`, set the key, and add `X-Kimss-Agent-Id` (see hero snippets).
 
-Step-by-step: [GETTING_STARTED.md](GETTING_STARTED.md) · 5-minute tutorial: [kimss-ai-inc/kimss-python-quickstart](https://github.com/kimss-ai-inc/kimss-python-quickstart) · control-plane OpenAPI: [kimss-ai-inc/kimss-control-plane](https://github.com/kimss-ai-inc/kimss-control-plane).
+Step-by-step: [GETTING_STARTED.md](GETTING_STARTED.md) · 5-minute tutorial: [kimss-ai/kimss-python-quickstart](https://github.com/kimss-ai/kimss-python-quickstart) · control-plane OpenAPI: [kimss-ai/kimss-control-plane](https://github.com/kimss-ai/kimss-control-plane).
 
 ---
 
