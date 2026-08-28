@@ -1,7 +1,7 @@
 # kimss
 Kimss dual-listener Secure AI Gateway (OpenAI /v1/chat/completions + Anthropic /v1/messages).
 
-Prerequisites: Provider Vault (/app/vault) then Gateway API key (/app/workspace/keys) before repo changes.
+Prerequisites: Provider Vault (/app/vault) then Gateway API key (/app/keys) before repo changes.
 
 - AI_INTEGRATION.md (mandatory A2A)
 - Keep native openai or anthropic SDK; never KimssClient for inference

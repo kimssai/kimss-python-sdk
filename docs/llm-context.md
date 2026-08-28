@@ -4,7 +4,7 @@ Pair with [AI_INTEGRATION.md](../AI_INTEGRATION.md), [README.md](../README.md), 
 
 ## Clean machine checklist (do this first)
 
-0. **Kimss app (human or operator):** Provider Vault (`/app/vault`) — register each `custom:<model_id>`. Gateway API key (`/app/workspace/keys`).
+0. **Kimss app (human or operator):** Provider Vault (`/app/vault`) — register each `custom:<model_id>`. Gateway API key (`/app/keys`).
 1. **Python ≥ 3.10** available.
 2. For **inference**: keep the native SDK already in the repo — `pip install openai` and/or `pip install anthropic`. Point it at the Kimss gateway (no Kimss SDK required).
 3. Optional control-plane package: `pip install kimss` (register agents, report usage). Declared dep: `requests>=2.28`.

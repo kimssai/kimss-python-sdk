@@ -12,7 +12,7 @@ Kimss is a **Model-Agnostic Enterprise AI Gateway and Governance Control Plane**
 Complete these in the Kimss UI **before** rewiring application code:
 
 1. **Provider Vault** (`/app/vault`): register each `custom:<model_id>` you will call. One vault row per model alias; you may reuse the same provider API key when registering multiple models.
-2. **Gateway API key** (`/app/workspace/keys`): mint a `kimss_...` workspace key. Never put the provider key in application source code.
+2. **Gateway API key** (`/app/keys`): mint a `kimss_...` workspace key. Never put the provider key in application source code.
 3. **Route traffic**: set `OPENAI_BASE_URL=https://api.kimss.ai/v1` (or Anthropic `base_url=https://api.kimss.ai`) and use the Gateway API key as `OPENAI_API_KEY` / `api_key`.
 
 If a model is not vaulted, Kimss returns an error pointing to Provider Vault. **Agents Discovery** (`/app/agents`) populates automatically after the first governed request that includes `X-Kimss-Agent-Id` — you do not need to create agents in the UI first.
@@ -31,14 +31,14 @@ If a model is not vaulted, Kimss returns an error pointing to Provider Vault. **
 
 ```python
 from openai import OpenAI
-from kimss.gateway_headers import gateway_headers
+from kimss.gateway_headers import gateway_headers  # optional — extra_headers dict also works
 
 client = OpenAI(
-    base_url="https://api.kimss.ai/v1",
-    api_key="kimss_workspace_key",
+    base_url="https://api.kimss.ai/v1",  # required
+    api_key="kimss_workspace_key",  # required Gateway key, not the provider key
 )
 response = client.chat.completions.create(
-    model="custom:kimss-gpt-5-3",
+    model="custom:kimss-gpt-5-3",  # required — vaulted alias
     messages=[{"role": "user", "content": "Execute audit."}],
     extra_headers=gateway_headers(agent_id="enterprise_auditor", agent_name="Enterprise auditor"),
 )
