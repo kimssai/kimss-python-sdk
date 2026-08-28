@@ -10,7 +10,7 @@ Pair with [AI_INTEGRATION.md](../AI_INTEGRATION.md), [README.md](../README.md), 
 3. Optional control-plane package: `pip install kimss` (register agents, report usage). Declared dep: `requests>=2.28`.
 4. Set env: `KIMSS_WORKSPACE_KEY` or `KIMSS_API_KEY`, `KIMSS_AGENT_ID`. OpenAI default host `https://api.kimss.ai/v1`. Anthropic default host `https://api.kimss.ai`.
 5. **Preferred first call:** official OpenAI client → `POST /v1/chat/completions` **or** official Anthropic client → `POST /v1/messages`, always with `X-Kimss-Agent-Id`.
-6. **Agents Discovery:** inventory rows appear JIT after first gateway traffic; pre-define policy in UI only when governance must exist before the first call.
+6. **Agents Discovery:** inventory rows appear JIT after first gateway traffic. Endpoint governance (monthly token caps, Article 12 assurance) lives in Provider Vault — not as agent checkboxes.
 7. **Deprecated:** `KimssClient.agents.run`, `chat`, `Agent.query`, `models.create`, MCP `kimss_chat` / `kimss_run_agent` / `kimss_complete`.
 
 ## Preferred inference (dual-listener gateway)
