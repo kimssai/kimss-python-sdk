@@ -1,6 +1,11 @@
 # AI Integration — Kimss Gateway (Agent-to-Agent)
 
-**Strict directive for Cursor, Windsurf, Claude Code, Devin, and other coding assistants.**
+**Strict directive for Cursor, Windsurf, Claude Code, Cascade, Devin, and other coding assistants.**
+
+> **Canonical public A2A contract:**  
+> https://raw.githubusercontent.com/kimss-ai/kimss-control-plane/main/AI_INTEGRATION.md  
+> ([kimss-ai/kimss-control-plane](https://github.com/kimss-ai/kimss-control-plane))  
+> Prefer that file when onboarding a **customer application repo**. This mirror stays for SDK-repo local assistants and PyPI docs.
 
 Kimss is a **Model-Agnostic Enterprise AI Gateway and Governance Control Plane** with a **dual-listener** inbound proxy:
 

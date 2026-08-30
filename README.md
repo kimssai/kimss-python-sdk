@@ -9,7 +9,7 @@
 
 [Kimss](https://kimss.ai) is a **Model-Agnostic Enterprise AI Gateway** and **Governance Control Plane** with a **dual-listener** inbound proxy (OpenAI + Anthropic). Keep the native SDK you already use — swap the base URL, add an Agent ID header, and every call gets identity, an audit trail, and a kill switch. Kimss never hosts your models (**BYOI**).
 
-> **AI coding assistants:** read [AI_INTEGRATION.md](AI_INTEGRATION.md) first.
+> **AI coding assistants:** read the canonical [control-plane `AI_INTEGRATION.md`](https://github.com/kimss-ai/kimss-control-plane/blob/main/AI_INTEGRATION.md) first (local mirror: [AI_INTEGRATION.md](AI_INTEGRATION.md)).
 
 **OpenAI**
 
