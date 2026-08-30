@@ -92,4 +92,9 @@ def raise_for_kimss_error(response: requests.Response) -> None:
             msg = str((detail or {}).get("message") or "rate_limit_exceeded")
             raise KimssRateLimited(msg, response=response, error_code=err, detail=detail)
 
-    response.raise_for_status()
+    try:
+        response.raise_for_status()
+    except requests.HTTPError as exc:
+        if detail:
+            raise requests.HTTPError(f"{exc} — {detail}", response=response) from exc
+        raise
