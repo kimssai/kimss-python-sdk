@@ -18,7 +18,7 @@ def gateway_headers(
     """
     Return ``extra_headers`` for official OpenAI/Anthropic SDK clients pointed at Kimss.
 
-    Includes agent attribution plus optional ``X-Kimss-SDK-Context`` for named call sites.
+    Includes agent attribution plus optional ``X-Kimss-SDK-Context`` for named call sites in Agent Tracking.
     """
     aid = (agent_id or "").strip()
     if not aid:

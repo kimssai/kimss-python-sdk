@@ -29,7 +29,7 @@ If a model is not vaulted, Kimss returns an error pointing to Provider Vault. **
 3. **For OpenAI:** set `base_url` to `https://api.kimss.ai/v1`.
 4. **For Anthropic:** set `base_url` to `https://api.kimss.ai` (the SDK appends `/v1/messages`).
 5. **Always** inject `X-Kimss-Agent-Id` (and preferably `X-Kimss-Agent-Name`) for JIT attribution, audit, and kill-switch.
-6. **Call-site visibility (recommended):** use `kimss.gateway_headers(agent_id=..., agent_name=...)` as `extra_headers` so Agent Tracking and Call Sites get a named environment (`X-Kimss-SDK-Context`). Without it, Kimss still infers runtime from `User-Agent` / `x-stainless-*` headers.
+6. **Call-site visibility (recommended):** use `kimss.gateway_headers(agent_id=..., agent_name=...)` as `extra_headers` so Agent Tracking gets a named environment (`X-Kimss-SDK-Context`). Without it, Kimss still infers runtime from `User-Agent` / `x-stainless-*` headers.
 7. Hermis / HTTP interceptors: forward Agent-Id headers; never strip them.
 
 ## OpenAI
